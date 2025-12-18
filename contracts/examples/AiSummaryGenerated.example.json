@@ -1,0 +1,17 @@
+{
+  "event_id": "44444444-4444-4444-4444-444444444444",
+  "event_type": "AiSummaryGenerated",
+  "schema_version": "1.0",
+  "occurred_at": "2025-12-17T22:11:18Z",
+  "producer": "ai-analysis-service",
+  "correlation_id": "demo-corr-001",
+  "data": {
+    "incident_key": "INC-20251217-0007",
+    "model_name": "demo-llm",
+    "prompt_version": "v1.0",
+    "summary": "Inventory p95 latency spiked sharply while traffic stayed stable, suggesting backend contention rather than load. Most likely causes are DB lock contention or a slow query regression. Check DB locks, slow query logs, and recent deploys to inventory-service.",
+    "root_cause_hypothesis": "DB lock contention or slow query regression in inventory-service",
+    "next_steps": "1) Check active DB locks and long-running queries. 2) Compare p95 latency by endpoint_group. 3) Review last deployment and feature flags. 4) Mitigate by scaling read replicas or rolling back if needed.",
+    "confidence": 0.74
+  }
+}
