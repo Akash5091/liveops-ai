@@ -1,0 +1,28 @@
+{
+  "$id": "https://liveops.ai/schemas/AiSummaryGenerated.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AiSummaryGenerated",
+  "type": "object",
+  "required": ["event_id","event_type","schema_version","occurred_at","producer","correlation_id","data"],
+  "properties": {
+    "event_id": { "type": "string", "format": "uuid" },
+    "event_type": { "const": "AiSummaryGenerated" },
+    "schema_version": { "const": "1.0" },
+    "occurred_at": { "type": "string", "format": "date-time" },
+    "producer": { "type": "string" },
+    "correlation_id": { "type": "string" },
+    "data": {
+      "type": "object",
+      "required": ["incident_key","model_name","prompt_version","summary","confidence"],
+      "properties": {
+        "incident_key": { "type": "string" },
+        "model_name": { "type": "string" },
+        "prompt_version": { "type": "string" },
+        "summary": { "type": "string" },
+        "root_cause_hypothesis": { "type": "string" },
+        "next_steps": { "type": "string" },
+        "confidence": { "type": "number" }
+      }
+    }
+  }
+}
