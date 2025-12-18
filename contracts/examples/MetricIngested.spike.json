@@ -1,0 +1,19 @@
+{
+  "event_id": "22222222-2222-2222-2222-222222222222",
+  "event_type": "MetricIngested",
+  "schema_version": "1.0",
+  "occurred_at": "2025-12-17T22:11:00Z",
+  "producer": "metrics-service",
+  "correlation_id": "demo-corr-001",
+  "data": {
+    "service_key": "inventory-service",
+    "metric_key": "http.latency.p95_ms",
+    "bucket_start": "2025-12-17T22:11:00Z",
+    "value": 1850.0,
+    "unit": "ms",
+    "dimensions": {
+      "region": "us-central",
+      "endpoint_group": "public"
+    }
+  }
+}
