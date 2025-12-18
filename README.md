@@ -210,7 +210,7 @@ MIT License - See LICENSE file for details
 
 ## Author
 
-**Akash Patel**  
+**Akash Reddy Bommireddy
 Full-Stack Software Engineer  
 [GitHub](https://github.com/Akash5091) • [LinkedIn](https://linkedin.com/in/your-profile)
 
