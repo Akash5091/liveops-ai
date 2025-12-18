@@ -1,0 +1,35 @@
+{
+  "event_id": "33333333-3333-3333-3333-333333333333",
+  "event_type": "IncidentRaised",
+  "schema_version": "1.0",
+  "occurred_at": "2025-12-17T22:11:10Z",
+  "producer": "incident-service",
+  "correlation_id": "demo-corr-001",
+  "data": {
+    "incident_key": "INC-20251217-0007",
+    "title": "Latency spike detected in inventory-service",
+    "description": "p95 latency exceeded threshold for 2 consecutive buckets",
+    "severity": "high",
+    "status": "open",
+    "started_at": "2025-12-17T22:11:00Z",
+    "detected_at": "2025-12-17T22:11:10Z",
+    "primary_service_key": "inventory-service",
+    "impacted_services": [
+      { "service_key": "inventory-service", "impact_score": 0.92 },
+      { "service_key": "checkout-service", "impact_score": 0.45 }
+    ],
+    "labels": ["latency_spike", "suspected_db_lock"],
+    "evidence": [
+      {
+        "service_key": "inventory-service",
+        "metric_key": "http.latency.p95_ms",
+        "bucket_start": "2025-12-17T22:11:00Z",
+        "observed_value": 1850.0,
+        "baseline_value": 200.0,
+        "threshold_value": 800.0,
+        "z_score": 6.8,
+        "note": "p95 latency jumped ~9x above baseline"
+      }
+    ]
+  }
+}
