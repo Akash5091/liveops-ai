@@ -1,0 +1,31 @@
+{
+  "$id": "https://liveops.ai/schemas/AnomalyDetected.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AnomalyDetected",
+  "type": "object",
+  "required": ["event_id","event_type","schema_version","occurred_at","producer","correlation_id","data"],
+  "properties": {
+    "event_id": { "type": "string", "format": "uuid" },
+    "event_type": { "const": "AnomalyDetected" },
+    "schema_version": { "const": "1.0" },
+    "occurred_at": { "type": "string", "format": "date-time" },
+    "producer": { "type": "string" },
+    "correlation_id": { "type": "string" },
+    "data": {
+      "type": "object",
+      "required": ["service_key","metric_key","bucket_start","observed_value","baseline_value","method","score","severity_hint"],
+      "properties": {
+        "service_key": { "type": "string" },
+        "metric_key": { "type": "string" },
+        "bucket_start": { "type": "string", "format": "date-time" },
+        "observed_value": { "type": "number" },
+        "baseline_value": { "type": "number" },
+        "method": { "type": "string", "enum": ["threshold","zscore","ewma"] },
+        "score": { "type": "number" },
+        "threshold_value": { "type": ["number","null"] },
+        "severity_hint": { "type": "string", "enum": ["low","medium","high","critical"] },
+        "dimensions": { "type": "object", "additionalProperties": true }
+      }
+    }
+  }
+}
